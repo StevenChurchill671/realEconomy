@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://inobdhlwagwi"]
+
+[ext_resource type="PackedScene" uid="uid://k6gqn6rfsxcc" path="res://employment_farmer.tscn" id="1_t655n"]
+
+[node name="employmentType" type="Node3D" unique_id=2132871893]
+
+[node name="employmentFarmer" parent="." unique_id=460603253 instance=ExtResource("1_t655n")]
