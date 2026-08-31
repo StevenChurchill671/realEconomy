@@ -6,5 +6,5 @@ var nameOfEmployment : String = ""
 
 
 func assignFarmer():
-	pass
-	
+	var tempJob = load("res://resources/farmer.tres")
+	nameOfEmployment = tempJob.nameOfEmployment
