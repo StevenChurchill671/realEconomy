@@ -1,5 +1,7 @@
 extends Node3D
 
+##The location of the node needed to work
+##the job.
 var employmentLocation
 var employmentType 
 func _ready() -> void:
