@@ -1,7 +1,3 @@
 [gd_scene format=3 uid="uid://cvixnbe4onlyy"]
 
-[ext_resource type="PackedScene" uid="uid://dk5dysm7bewww" path="res://employment.tscn" id="1_0pife"]
-
-[node name="Person" type="Node3D" unique_id=1704654022]
-
-[node name="Employment" parent="." unique_id=1296496971 instance=ExtResource("1_0pife")]
+[node name="person" type="Node3D" unique_id=570725723]

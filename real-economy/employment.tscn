@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://dk5dysm7bewww"]
 
 [ext_resource type="Script" uid="uid://ca0hyary6v16e" path="res://employment.gd" id="1_3ayhy"]
-[ext_resource type="PackedScene" uid="uid://inobdhlwagwi" path="res://employment_type.tscn" id="2_5i7f5"]
 
-[node name="Employment" type="Node3D" unique_id=1296496971]
+[node name="employment" type="Node3D" unique_id=779225717]
 script = ExtResource("1_3ayhy")
-
-[node name="employmentType" parent="." unique_id=2132871893 instance=ExtResource("2_5i7f5")]
