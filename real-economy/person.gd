@@ -1,4 +1,17 @@
 extends CharacterBody3D
+
+##Tracks owned locations such as farm
+##could later be put in a seperate portfolio
+##node alongside [member purse]? if that would be easier
+var ownedLocations = []
+##Tracks accumulated currencies - also see [member ownedLocations]
+var purse = {"dollars" : 100, "pounds" : 25}
+##Faction this person belongs to.
+var faction
+##List of employees
+var employees = []
+##Link to employer
+var employer 
 var speed = 2
 var target : Vector3 
 var localMesh

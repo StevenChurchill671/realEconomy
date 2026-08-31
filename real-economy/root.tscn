@@ -5,3 +5,9 @@
 [node name="Root" type="Node" unique_id=371090942]
 
 [node name="testLocation" parent="." unique_id=2130293207 instance=ExtResource("1_pq8q7")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1101802862]
+transform = Transform3D(0.17076032, 0.37569115, -0.9108771, -0.06922417, 0.92674494, 0.36925852, 0.9828779, 7.323011e-09, 0.18425818, -9.213906, 5.8730803, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=300803822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.342926, 8.140407, 0)

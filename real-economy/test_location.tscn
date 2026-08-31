@@ -10,7 +10,7 @@ size = Vector2(10, 10)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mrwl0"]
 points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
 
-[node name="testLocation" type="CharacterBody3D" unique_id=1042699849]
+[node name="testLocation" type="Node3D" unique_id=174146320]
 script = ExtResource("1_7smf6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1587858785]

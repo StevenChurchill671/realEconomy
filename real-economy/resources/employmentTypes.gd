@@ -12,3 +12,6 @@ func assignFarmer():
 func assignMiner():
 	var tempJob = load("res://resources/miner.tres")
 	nameOfEmployment = tempJob.get_meta(nameOfEmployment)
+
+func assignEmployer():
+	pass
