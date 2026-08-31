@@ -26,6 +26,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.332118, 0.5, 2.2444355)
 
 [node name="person" parent="." unique_id=570725723 instance=ExtResource("3_0yauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.345195, 1, -1.4805975)
+purse = {
+"dollars": 150,
+"pounds": 25
+}
 
 [node name="person2" parent="." unique_id=1107046083 instance=ExtResource("3_0yauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4465927, 1, -3.85004)
