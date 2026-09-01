@@ -13,7 +13,7 @@ var purse = {"dollars" : 100, "pounds" : 25}
 var faction =load("res://resources/faction.gd")
 ##List of employees
 @export
-var employees = []
+var employees : Array[Person]= []
 ##Link to employer
 @export
 var employer : Person
