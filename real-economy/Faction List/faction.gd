@@ -1,4 +1,5 @@
 extends Node
+##A faction, which people ([Person]) belong to
 class_name Faction
 ##Name of the faction
 var factionName : String = ""

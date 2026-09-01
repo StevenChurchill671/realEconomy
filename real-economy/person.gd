@@ -1,16 +1,19 @@
 extends CharacterBody3D
+##A person in the world, could be
+##a farmer, an employer, unemployed.
+##[method addEmployee]
 class_name Person
 ##Tracks owned locations such as farm
 ##could later be put in a seperate portfolio
 ##node alongside [member purse]? if that would be easier
 @export
-var ownedLocations = []
+var ownedLocations  = []
 ##Tracks accumulated currencies - also see [member ownedLocations]
 @export
 var purse = {"dollars" : 100, "pounds" : 25}
 ##Faction this person belongs to.
 @export
-var faction =load("res://resources/faction.gd")
+var faction :Faction
 ##List of employees
 @export
 var employees : Array[Person]= []
@@ -22,8 +25,19 @@ var speed = 2
 var target : Vector3 
 ##link to employmentType
 var employment = employmentType.new()
+
+
+
+func addEmployee():
+	pass
+
+
+
+
 func _ready() -> void:
 	target=self.global_position
+
+
 func _process(delta: float) -> void:
 	if !is_inside_tree():
 		return
