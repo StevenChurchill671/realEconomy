@@ -10,14 +10,14 @@ class_name Person
 var ownedLocations  = []
 ##Tracks accumulated currencies - also see [member ownedLocations]
 @export
-var purse = {"dollars" : 100, "pounds" : 25}
-##Faction this person belongs to.
+var purse : Purse = Purse.new()
+##[Faction] this person belongs to.
 @export
 var faction :Faction
-##List of employees
+##List of employees ([Person]s employed) if they exist.
 @export
 var employees : Array[Person]= []
-##Link to employer
+##Link to employer, if one exists. ([Person]) or later company.
 @export
 var employer : Person
 
@@ -30,9 +30,13 @@ var employment = employmentType.new()
 
 func addEmployee():
 	pass
-
-
-
+##Set the [Faction] of this person.
+func setFaction(thisFaction : Faction):
+	self.faction =thisFaction 
+func setupPerson(thisOwnedLocationList : Array, thisDollars: int ,thisPounds : int,thisFaction: Faction, ):
+	ownedLocations = thisOwnedLocationList
+	self.purse.setupPurse(thisDollars,thisPounds)
+	self.faction =thisFaction
 
 func _ready() -> void:
 	target=self.global_position

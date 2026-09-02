@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://q7gncde6b6du"]
+
+[ext_resource type="Script" uid="uid://dd6ueul0dgh2x" path="res://faction_holder.gd" id="1_yukd1"]
+
+[node name="factionHolder" type="Node" unique_id=120131194]
+script = ExtResource("1_yukd1")

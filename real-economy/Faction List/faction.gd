@@ -13,3 +13,9 @@ var leader
 ##to or from the employer list
 func updateEmployers(employerToUpdate):
 	pass
+##Add a member ([Person]) to the faction.
+func addMember(member : Person,):
+	memberList.append(member)
+	member.setFaction(self) 
+func setupFaction(thisFactionName : String, ):
+	factionName = thisFactionName
