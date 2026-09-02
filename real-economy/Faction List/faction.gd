@@ -1,7 +1,8 @@
-extends Node
+extends Resource
 ##A faction, which people ([Person]) belong to
 class_name Faction
 ##Name of the faction
+@export
 var factionName : String = ""
 ##list of all members of the faction
 var memberList : Array[Person] = []

@@ -11,6 +11,9 @@ var ownedLocations  = []
 ##Tracks accumulated currencies - also see [member ownedLocations]
 @export
 var purse : Purse = Purse.new()
+##The name of the person.
+@export
+var personName : String
 ##[Faction] this person belongs to.
 @export
 var faction :Faction

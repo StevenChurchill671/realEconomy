@@ -1,5 +1,10 @@
 extends Node
 
-var fac = preload("res://Faction List/exampleFaction.gd")
-@export 
-var factionList : Array[Resource]= [fac.instantiate()]
+var fac : Faction
+
+var factionList : Array[Faction]= [load("res://Faction List/exampleFaction.gd").new()]
+
+func _ready() -> void:
+	fac = factionList[0]
+	fac.setupFaction("Example Faction")
+	
