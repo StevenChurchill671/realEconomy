@@ -7,7 +7,7 @@ class_name Person
 ##could later be put in a seperate portfolio
 ##node alongside [member purse]? if that would be easier
 @export
-var ownedLocations  = []
+var ownedLocations :Array[Location] = []
 ##Tracks accumulated currencies - also see [member ownedLocations]
 @export
 var purse : Purse = Purse.new()
@@ -16,10 +16,17 @@ var purse : Purse = Purse.new()
 var personName : String
 ##[Faction] this person belongs to.
 @export
-var faction :Faction
+var faction :Faction:
+	set(thisFaction):
+		if faction == thisFaction:
+			return
+		faction = thisFaction
+		if thisFaction != null:
+			thisFaction.addMember(self)
 ##List of employees ([Person]s employed) if they exist.
 @export
 var employees : Array[Person]= []
+
 ##Link to employer, if one exists. ([Person]) or later company.
 @export
 var employer : Person
@@ -43,7 +50,12 @@ func setupPerson(thisOwnedLocationList : Array, thisDollars: int ,thisPounds : i
 
 func _ready() -> void:
 	target=self.global_position
-
+	
+	if faction != null:
+		print(faction.factionName)
+		faction.addMember(self)
+	else:
+			print("faction not found")
 
 func _process(delta: float) -> void:
 	if !is_inside_tree():

@@ -1,3 +1,6 @@
-[gd_resource type="Resource" format=3 uid="uid://u4v4p5v1u23y"]
+[gd_resource type="Resource" script_class="Faction" format=3 uid="uid://u4v4p5v1u23y"]
+
+[ext_resource type="Script" uid="uid://borurhl6p5hv7" path="res://Faction List/faction.gd" id="1_mqsph"]
 
 [resource]
+script = ExtResource("1_mqsph")

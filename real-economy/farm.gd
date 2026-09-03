@@ -1,5 +1,5 @@
 extends Node3D
-
+class_name Location
 ##Who owns this node
 var ownerOf : Person
 ##Does the owner employ and thus pay workers

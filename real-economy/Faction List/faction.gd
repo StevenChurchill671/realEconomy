@@ -2,7 +2,6 @@ extends Resource
 ##A faction, which people ([Person]) belong to
 class_name Faction
 ##Name of the faction
-@export
 var factionName : String = ""
 ##list of all members of the faction
 var memberList : Array[Person] = []
@@ -18,5 +17,6 @@ func updateEmployers(employerToUpdate):
 func addMember(member : Person,):
 	memberList.append(member)
 	member.setFaction(self) 
+	print("".join (memberList))
 func setupFaction(thisFactionName : String, ):
 	factionName = thisFactionName
