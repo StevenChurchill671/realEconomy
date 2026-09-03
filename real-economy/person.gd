@@ -32,8 +32,11 @@ var employees : Array[Person]= []
 
 ##Link to employer, if one exists. ([Person]) or later company.
 @export
-var employer : Person
-
+var employer : Person:
+	set(localEmployer):
+		employer = localEmployer
+		if !localEmployer.employees.has(self):
+			localEmployer.addEmployee(self)
 var speed = 2
 var target : Vector3 
 ##link to employmentType
@@ -43,8 +46,8 @@ var employment : employmentType = employmentType.new()
 
 func addOwnedLocation(thisLocation):
 	ownedLocations.append(thisLocation)
-func addEmployee():
-	pass
+func addEmployee(localEmployee : Person):
+	employees.append(localEmployee)
 ##Set the [Faction] of this person.
 func setFaction(thisFaction : Faction):
 	self.faction =thisFaction 
@@ -64,10 +67,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !is_inside_tree():
 		return
-	if 1== 1:
-		target = self.global_position
+	assignEmployeesToWork()
+	if currentTask != null:
+		target = currentTask.global_position
 		velocity = global_position.direction_to(target) * speed
 		move_and_slide()
 		return
 	velocity = global_position.direction_to(target) * speed
 	move_and_slide()
+
+func assignEmployeesToWork():
+	for localEmployee : Person in employees:
+		localEmployee.currentTask = ownedLocations[0]

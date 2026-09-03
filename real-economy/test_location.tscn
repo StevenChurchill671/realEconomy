@@ -33,7 +33,8 @@ ownedLocations = [NodePath("../farm")]
 personName = "John"
 faction = ExtResource("4_21p7k")
 
-[node name="person2" parent="." unique_id=1107046083 instance=ExtResource("3_0yauj")]
+[node name="person2" parent="." unique_id=1107046083 node_paths=PackedStringArray("employer") instance=ExtResource("3_0yauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4465927, 1, -3.85004)
 personName = "Jim"
 faction = ExtResource("4_21p7k")
+employer = NodePath("../Employer")
