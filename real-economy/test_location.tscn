@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bfvau80a7s2pt" path="res://test_location.gd" id="1_7smf6"]
 [ext_resource type="PackedScene" uid="uid://bur3m8tcys1ho" path="res://farm.tscn" id="1_adare"]
 [ext_resource type="PackedScene" uid="uid://cvixnbe4onlyy" path="res://person.tscn" id="3_0yauj"]
+[ext_resource type="Resource" uid="uid://u4v4p5v1u23y" path="res://Faction List/exampleFactionOne.tres" id="4_21p7k"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
 size = Vector2(10, 10)
@@ -10,8 +11,9 @@ size = Vector2(10, 10)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mrwl0"]
 points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
 
-[node name="testLocation" type="Node3D" unique_id=174146320]
+[node name="testLocation" type="Node3D" unique_id=174146320 node_paths=PackedStringArray("locationCitizens")]
 script = ExtResource("1_7smf6")
+locationCitizens = [NodePath("Employer"), NodePath("person2")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1587858785]
 mesh = SubResource("PlaneMesh_yf5fn")
@@ -21,13 +23,17 @@ mesh = SubResource("PlaneMesh_yf5fn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=723488515]
 shape = SubResource("ConvexPolygonShape3D_mrwl0")
 
-[node name="farm" parent="." unique_id=838175959 instance=ExtResource("1_adare")]
+[node name="farm" parent="." unique_id=838175959 node_paths=PackedStringArray("ownerOf") instance=ExtResource("1_adare")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.332118, 0.5, 2.2444355)
+ownerOf = NodePath("../Employer")
 
-[node name="Employer" parent="." unique_id=570725723 instance=ExtResource("3_0yauj")]
+[node name="Employer" parent="." unique_id=570725723 node_paths=PackedStringArray("ownedLocations") instance=ExtResource("3_0yauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.345195, 1, -1.4805975)
+ownedLocations = [NodePath("../farm")]
 personName = "John"
+faction = ExtResource("4_21p7k")
 
 [node name="person2" parent="." unique_id=1107046083 instance=ExtResource("3_0yauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4465927, 1, -3.85004)
 personName = "Jim"
+faction = ExtResource("4_21p7k")

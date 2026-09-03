@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dsiq571d4ipr5"]
 
 [ext_resource type="PackedScene" uid="uid://cyp1b5lw8degx" path="res://test_location.tscn" id="1_pq8q7"]
+[ext_resource type="Script" uid="uid://dsb6xabjcvabp" path="res://root.gd" id="1_vvh5c"]
+[ext_resource type="PackedScene" uid="uid://budqs154tq25j" path="res://global_time.tscn" id="2_pyidc"]
 
 [node name="Root" type="Node" unique_id=371090942]
+script = ExtResource("1_vvh5c")
 
 [node name="testLocation" parent="." unique_id=2130293207 instance=ExtResource("1_pq8q7")]
 
@@ -11,3 +14,5 @@ transform = Transform3D(0.17076032, 0.37569115, -0.9108771, -0.06922417, 0.92674
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=300803822]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.342926, 8.140407, 0)
+
+[node name="globalTime" parent="." unique_id=904804730 instance=ExtResource("2_pyidc")]

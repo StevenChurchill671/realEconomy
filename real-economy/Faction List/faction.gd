@@ -9,6 +9,8 @@ var memberList : Array[Person] = []
 var employersInFaction : Array[Person]= []
 ##leader of the faction
 var leader
+##A list of towns owned by this faction.
+var ownedTowns : Array[Town]
 ##The employer in question would trigger this to change
 ##to or from the employer list
 func updateEmployers(employerToUpdate):

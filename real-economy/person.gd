@@ -14,6 +14,9 @@ var purse : Purse = Purse.new()
 ##The name of the person.
 @export
 var personName : String
+##The current object the person is assigned to or null
+@export
+var currentTask : Location 
 ##[Faction] this person belongs to.
 @export
 var faction :Faction:
@@ -34,10 +37,12 @@ var employer : Person
 var speed = 2
 var target : Vector3 
 ##link to employmentType
-var employment = employmentType.new()
+@export
+var employment : employmentType = employmentType.new()
 
 
-
+func addOwnedLocation(thisLocation):
+	ownedLocations.append(thisLocation)
 func addEmployee():
 	pass
 ##Set the [Faction] of this person.
@@ -53,7 +58,6 @@ func _ready() -> void:
 	
 	if faction != null:
 		print(faction.factionName)
-		faction.addMember(self)
 	else:
 			print("faction not found")
 
