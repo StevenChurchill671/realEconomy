@@ -9,3 +9,8 @@ script = ExtResource("1_ju177")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1346943020]
 mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="workingTime" type="Timer" parent="." unique_id=1828614919]
+wait_time = 0.5
+
+[connection signal="timeout" from="workingTime" to="." method="_on_working_time_timeout"]
