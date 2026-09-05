@@ -12,7 +12,7 @@ var slotsAvailable = 4
 var workersToiling : Array[Person] = []
 
 var itemProduced : String = "Wheat"
-var workNeeded : int = 4000
+var workNeeded : int = 400
 
 func addWorkerToThis(thisWorker):
 	if! workersToiling.has(thisWorker):
@@ -28,6 +28,6 @@ func _on_working_time_timeout(thisWorker : Person, thisTimer) :
 	if workNeeded - thisWorker.labourAblity > 0:
 		workNeeded -= thisWorker.labourAblity
 	else:
-		workNeeded -= thisWorker.labourAblity
-		workNeeded = (4000 + (workNeeded - thisWorker.labourAblity))
+		#workNeeded -= thisWorker.labourAblity
+		workNeeded = (4000 + (workNeeded - thisWorker.labourAblity ))
 	print(str(workNeeded))
