@@ -7,7 +7,7 @@ var ownerOf : Person
 ##to work the node. Owner can be a faction representative
 ## to represent state control
 var ownerIsEmployer = false
-
+var amountOfProducedItem = 0
 var slotsAvailable = 4
 var workersToiling : Array[Person] = []
 
@@ -30,4 +30,5 @@ func _on_working_time_timeout(thisWorker : Person, thisTimer) :
 	else:
 		#workNeeded -= thisWorker.labourAblity
 		workNeeded = (4000 + (workNeeded - thisWorker.labourAblity ))
+		amountOfProducedItem + 1
 	print(str(workNeeded))
