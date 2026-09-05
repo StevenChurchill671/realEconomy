@@ -10,3 +10,5 @@ var ownerIsEmployer = false
 
 var slotsAvailable = 4
 var workersToiling : Array[Person]
+
+var itemProduced : String = "Wheat"
