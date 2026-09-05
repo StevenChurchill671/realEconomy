@@ -29,7 +29,9 @@ var faction :Faction:
 ##List of employees ([Person]s employed) if they exist.
 @export
 var employees : Array[Person]= []
-
+##The ability to do labour
+@export
+var labourAblity : int = 60
 ##Link to employer, if one exists. ([Person]) or later company.
 @export
 var employer : Person:

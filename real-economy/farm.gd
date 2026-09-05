@@ -23,9 +23,11 @@ func addWorkerToThis(thisWorker):
 		thisTimer.one_shot = true
 		thisTimer.start(1)
 
-func _on_working_time_timeout(thisWorker, thisTimer) :
+func _on_working_time_timeout(thisWorker : Person, thisTimer) :
 	workersToiling.erase(thisWorker)
-	
-	workNeeded -= 1
-	
+	if workNeeded - thisWorker.labourAblity > 0:
+		workNeeded -= thisWorker.labourAblity
+	else:
+		workNeeded -= thisWorker.labourAblity
+		workNeeded = (4000 + (workNeeded - thisWorker.labourAblity))
 	print(str(workNeeded))
