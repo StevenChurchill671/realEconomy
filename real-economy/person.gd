@@ -79,4 +79,4 @@ func _process(delta: float) -> void:
 func assignEmployeesToWork():
 	for localEmployee : Person in employees:
 		localEmployee.currentTask = ownedLocations[0]
-		localEmployee.currentTask.workersToiling.append(self)
+		localEmployee.currentTask.addWorkerToThis(localEmployee)

@@ -1,5 +1,6 @@
 extends Node3D
 class_name Location
+var timer = Timer.new()
 ##Who owns this node
 @export
 var ownerOf : Person
@@ -17,8 +18,11 @@ var workNeeded : int = 4000
 func addWorkerToThis(thisWorker):
 	if! workersToiling.has(thisWorker):
 		workersToiling.append(thisWorker)
-		$workingTime.timeout.connect(_on_working_time_timeout.bind(thisWorker))
-		$workingTime.start(thisWorker)
+		var thisTimer = Timer.new()
+		self.add_child(thisTimer)
+		thisTimer.timeout.connect(_on_working_time_timeout.bind(thisWorker))
+		thisTimer.start(1)
 
 func _on_working_time_timeout(thisWorker) :
-	workersToiling.get(thisWorker)
+	workersToiling.erase(thisWorker)
+	print("pringles")
