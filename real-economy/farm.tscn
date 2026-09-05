@@ -5,6 +5,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 
 [node name="farm" type="Node3D" unique_id=838175959]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 script = ExtResource("1_ju177")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1346943020]
