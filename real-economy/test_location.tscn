@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bur3m8tcys1ho" path="res://farm.tscn" id="1_adare"]
 [ext_resource type="PackedScene" uid="uid://cvixnbe4onlyy" path="res://person.tscn" id="3_0yauj"]
 [ext_resource type="Resource" uid="uid://u4v4p5v1u23y" path="res://Faction List/exampleFactionOne.tres" id="4_21p7k"]
+[ext_resource type="Script" uid="uid://cfdmutpvug8wa" path="res://resources/purse.gd" id="4_b51pg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
 size = Vector2(100, 100)
@@ -11,9 +12,14 @@ size = Vector2(100, 100)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mrwl0"]
 points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
 
+[sub_resource type="Resource" id="Resource_21p7k"]
+script = ExtResource("4_b51pg")
+dollars = 100
+metadata/_custom_type_script = "uid://cfdmutpvug8wa"
+
 [node name="testLocation" type="Node3D" unique_id=174146320 node_paths=PackedStringArray("locationCitizens")]
 script = ExtResource("1_7smf6")
-locationCitizens = [NodePath("Employer"), NodePath("person2")]
+locationCitizens = [NodePath("Employer"), NodePath("person2"), NodePath("person"), NodePath("person3")]
 
 [node name="farm" parent="." unique_id=838175959 node_paths=PackedStringArray("ownerOf") instance=ExtResource("1_adare")]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 18.405163, 0, 21.252956)
@@ -30,6 +36,7 @@ shape = SubResource("ConvexPolygonShape3D_mrwl0")
 [node name="Employer" parent="." unique_id=570725723 node_paths=PackedStringArray("ownedLocations") instance=ExtResource("3_0yauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.345195, 1, -1.4805975)
 ownedLocations = [NodePath("../farm")]
+purse = SubResource("Resource_21p7k")
 personName = "John"
 faction = ExtResource("4_21p7k")
 

@@ -31,7 +31,7 @@ var faction :Faction:
 var employees : Array[Person]= []
 ##The ability to do labour
 @export
-var labourAblity : int = 60
+var labourAblity : int = randi_range(30,65)
 ##Link to employer, if one exists. ([Person]) or later company.
 @export
 var employer : Person:
@@ -80,5 +80,10 @@ func _process(delta: float) -> void:
 
 func assignEmployeesToWork():
 	for localEmployee : Person in employees:
-		localEmployee.currentTask = ownedLocations[0]
-		localEmployee.currentTask.addWorkerToThis(localEmployee)
+		for thisLocation : Location in ownedLocations:
+			if thisLocation.slotsAvailable > 0:
+				thisLocation.addWorkerToThis(localEmployee)
+				localEmployee.currentTask = thisLocation
+		
+		
+		#slotsAvail

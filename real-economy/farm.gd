@@ -8,7 +8,8 @@ var ownerOf : Person
 ## to represent state control
 var ownerIsEmployer = false
 var amountOfProducedItem = 0
-var slotsAvailable = 4
+var slotsAvailable : int= 4
+var maxSlotsAvailable : int = 4
 var workersToiling : Array[Person] = []
 
 var itemProduced : String = "Wheat"
@@ -17,6 +18,7 @@ var workNeeded : int = 2000
 func addWorkerToThis(thisWorker):
 	if! workersToiling.has(thisWorker):
 		workersToiling.append(thisWorker)
+		slotsAvailable -= 1
 		var thisTimer = Timer.new()
 		self.add_child(thisTimer)
 		thisTimer.timeout.connect(_on_working_time_timeout.bind(thisWorker, thisTimer))
