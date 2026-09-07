@@ -12,3 +12,5 @@ func _ready() -> void:
 	workNeeded  = 2000
 	maxWorkNeeded = 2000
 	typeOfWork = "farmLabourAbility"
+func returnSkillType() -> skillNeeded:
+	return skillNeeded.farmLabourSkill

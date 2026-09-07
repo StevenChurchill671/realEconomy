@@ -19,7 +19,7 @@ var workNeeded : int
 var maxWorkNeeded : int
 var typeOfWork : String
 
-var skills : Dictionary = {"farmLabourAbility": 0, "millLabourAbility":1}
+enum skillNeeded {millLabourSkill,farmLabourSkill}
 func addWorkerToThis(thisWorker):
 	if! workersToiling.has(thisWorker):
 		workersToiling.append(thisWorker)
@@ -33,12 +33,26 @@ func addWorkerToThis(thisWorker):
 func _on_working_time_timeout(thisWorker : Person, thisTimer:Timer) :
 	workersToiling.erase(thisWorker)
 	slotsAvailable +=1
-	if workNeeded - thisWorker.labourAblity > 0:
-		workNeeded -= thisWorker.labourAblity
+	if returnSkillType() == skillNeeded.farmLabourSkill:
+		if workNeeded - thisWorker.farmLabourAbility > 0:
+			workNeeded -= thisWorker.farmLabourAbility
 	else:
 		#workNeeded -= thisWorker.labourAblity
-		workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.labourAblity ))
+		workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.farmLabourAbility ))
+		amountOfProducedItem += 1
+	if returnSkillType() == skillNeeded.millLabourSkill:
+		if workNeeded - thisWorker.millLabourAbility > 0:
+			workNeeded -= thisWorker.millLabourAbility
+	else:
+		#workNeeded -= thisWorker.labourAblity
+		workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.millLabourAbility ))
 		amountOfProducedItem += 1
 	print(str(workNeeded))
 	print(str(slotsAvailable))
 	thisTimer.queue_free()
+
+func findBestWorker():
+	pass
+func returnSkillType() -> skillNeeded:
+	return skillNeeded
+	
