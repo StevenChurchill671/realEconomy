@@ -32,6 +32,10 @@ var employees : Array[Person]= []
 ##The ability to do labour
 @export
 var labourAblity : int = randi_range(30,65)
+@export
+var millLabourAbility : int = 0
+@export 
+var farmLabourAbility : int = 0
 ##Link to employer, if one exists. ([Person]) or later company.
 @export
 var employer : Person:
