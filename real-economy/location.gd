@@ -16,8 +16,10 @@ var workersToiling : Array[Person] = []
 var itemProduced : Item 
 var workNeeded : int 
 var maxWorkNeeded : int
-
-
+@export
+var itemConsumed : Item
+var runner : Person
+var enoughItemsToConsume : bool = false
 enum skillNeeded {millLabourSkill,farmLabourSkill}
 func addWorkerToThis(thisWorker):
 	if! workersToiling.has(thisWorker):
@@ -30,14 +32,29 @@ func addWorkerToThis(thisWorker):
 		thisTimer.start(1)
 
 func _on_working_time_timeout(thisWorker : Person, thisTimer:Timer) :
+	if itemConsumed != null:
+		if itemConsumed.amount>0:
+			itemConsumed.amount -=1
+			enoughItemsToConsume = true
+			if workNeeded - thisWorker.skillBeingUsed > 0:
+				workNeeded -= thisWorker.skillBeingUsed
+			else:
+				
+				workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.skillBeingUsed ))
+				itemProduced.amount += 1
+		else :
+			enoughItemsToConsume = false
+	
+	
+	else:
+		if workNeeded - thisWorker.skillBeingUsed > 0:
+			workNeeded -= thisWorker.skillBeingUsed
+		else:
+			
+			workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.skillBeingUsed ))
+			itemProduced.amount += 1
 	workersToiling.erase(thisWorker)
 	slotsAvailable +=1
-	if workNeeded - thisWorker.skillBeingUsed > 0:
-			workNeeded -= thisWorker.skillBeingUsed
-	else:
-		#workNeeded -= thisWorker.labourAblity
-		workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.skillBeingUsed ))
-		itemProduced.amount += 1
 	print(str(workNeeded))
 	print(str(slotsAvailable))
 	thisTimer.queue_free()
@@ -47,3 +64,6 @@ func _on_working_time_timeout(thisWorker : Person, thisTimer:Timer) :
 func returnSkillType() -> skillNeeded:
 	return skillNeeded
 	
+func getRunner(thisItem : Item, thisRunner : Person,runnerTarget):
+	
+	thisRunner.currentTask = runnerTarget

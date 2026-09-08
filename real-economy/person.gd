@@ -38,6 +38,7 @@ var millLabourAbility : int = 100
 var farmLabourAbility : int = 25
 enum skills {millLabourSkill,farmLabourSkill}
 var skillBeingUsed : int
+var inventory : Array[Item] 
 ##Link to employer, if one exists. ([Person]) or later company.
 @export
 var employer : Person:

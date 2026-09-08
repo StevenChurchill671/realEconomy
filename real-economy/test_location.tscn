@@ -40,7 +40,7 @@ shape = SubResource("ConvexPolygonShape3D_mrwl0")
 
 [node name="Employer" parent="." unique_id=570725723 node_paths=PackedStringArray("ownedLocations") instance=ExtResource("3_0yauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.345195, 1, -1.4805975)
-ownedLocations = [NodePath("../farm"), NodePath("../farm2"), NodePath("../mill")]
+ownedLocations = [NodePath("../farm"), NodePath("../farm2"), NodePath("../mill"), NodePath("../farm3"), NodePath("../farm4")]
 purse = SubResource("Resource_21p7k")
 personName = "John"
 faction = ExtResource("4_21p7k")
@@ -71,3 +71,11 @@ employer = NodePath("../Employer")
 
 [node name="mill" parent="." unique_id=842592306 instance=ExtResource("6_sk2n7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1177063, 0.7730627, -12.889114)
+
+[node name="farm3" parent="." unique_id=779644431 node_paths=PackedStringArray("ownerOf") instance=ExtResource("1_adare")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 34.895885, 0, -7.275895)
+ownerOf = NodePath("../Employer")
+
+[node name="farm4" parent="." unique_id=482114024 node_paths=PackedStringArray("ownerOf") instance=ExtResource("1_adare")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 30.831964, 0, 13.037754)
+ownerOf = NodePath("../Employer")
