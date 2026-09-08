@@ -21,12 +21,12 @@ metadata/_custom_type_script = "uid://cfdmutpvug8wa"
 script = ExtResource("1_7smf6")
 locationCitizens = [NodePath("Employer"), NodePath("person2"), NodePath("person"), NodePath("person3")]
 
-[node name="farm" parent="." unique_id=838175959 node_paths=PackedStringArray("ownerOf") instance=ExtResource("1_adare")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 18.405163, 0, 21.252956)
+[node name="farm2" parent="." unique_id=838175959 node_paths=PackedStringArray("ownerOf") instance=ExtResource("1_adare")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 24.114576, 1, -18.05083)
 ownerOf = NodePath("../Employer")
 
-[node name="farm2" parent="." unique_id=669356159 node_paths=PackedStringArray("ownerOf") instance=ExtResource("1_adare")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 18.405163, 0, -28.445717)
+[node name="farm" parent="." unique_id=1966577695 node_paths=PackedStringArray("ownerOf") instance=ExtResource("1_adare")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 18.405163, 1, 21.252956)
 ownerOf = NodePath("../Employer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1587858785]
@@ -58,4 +58,12 @@ employer = NodePath("../Employer")
 [node name="person3" parent="." unique_id=196305057 node_paths=PackedStringArray("employer") instance=ExtResource("3_0yauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5787306, 1.2142849, -4.132284)
 faction = ExtResource("4_21p7k")
+employer = NodePath("../Employer")
+
+[node name="person4" parent="." unique_id=1591687929 node_paths=PackedStringArray("employer") instance=ExtResource("3_0yauj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4.0883894)
+employer = NodePath("../Employer")
+
+[node name="person5" parent="." unique_id=1369371845 node_paths=PackedStringArray("employer") instance=ExtResource("3_0yauj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8.480664)
 employer = NodePath("../Employer")

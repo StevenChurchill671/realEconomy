@@ -86,11 +86,18 @@ func _process(delta: float) -> void:
 
 func assignEmployeesToWork():
 	for localEmployee : Person in employees:
+		var bestLocation : Location = null
+		var bestScore : int = -1
 		for thisLocation : Location in ownedLocations:
 			if thisLocation.slotsAvailable > 0:
-				localEmployee.skillBeingUsed = getSkillNeeded(thisLocation) 
-				thisLocation.addWorkerToThis(localEmployee)
-				localEmployee.currentTask = thisLocation
+				var score = localEmployee.getSkillNeeded(thisLocation)
+				if score > bestScore:
+					bestScore = score
+					bestLocation = thisLocation
+				if bestLocation != null:
+					localEmployee.skillBeingUsed = getSkillNeeded(bestLocation) 
+					bestLocation.addWorkerToThis(localEmployee)
+					localEmployee.currentTask = bestLocation
 		
 		
 ##discovery function called on an employee employee.getskills to determine
