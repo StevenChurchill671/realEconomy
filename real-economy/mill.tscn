@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://diphyf7ig1jv8"]
 
+[ext_resource type="Script" uid="uid://jqhp3vomxbrw" path="res://mill.gd" id="1_4f2v4"]
+[ext_resource type="Resource" uid="uid://dnuoj028g8faw" path="res://resources/flour.tres" id="2_6f5ni"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
 [node name="mill" type="Node3D" unique_id=842592306]
+script = ExtResource("1_4f2v4")
+itemProduced = ExtResource("2_6f5ni")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1803534853]
+mesh = SubResource("BoxMesh_g4v7s")

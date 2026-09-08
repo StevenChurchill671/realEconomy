@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bur3m8tcys1ho"]
 
 [ext_resource type="Script" uid="uid://dkom8edl872uh" path="res://farm.gd" id="1_ju177"]
+[ext_resource type="Resource" uid="uid://d0rdctomaciu0" path="res://resources/wheat.tres" id="2_bw225"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 
 [node name="farm" type="Node3D" unique_id=838175959]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 script = ExtResource("1_ju177")
+itemProduced = ExtResource("2_bw225")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1346943020]
 mesh = SubResource("BoxMesh_g4v7s")

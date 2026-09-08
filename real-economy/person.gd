@@ -108,14 +108,14 @@ func getSkillNeeded(thisLocation :Location) -> int:
 			if farmLabourAbility > 50:
 				return farmLabourAbility
 			if millLabourAbility > (farmLabourAbility * 2):
-				return millLabourAbility/2
+				return int(float(millLabourAbility)/2)
 			else:
 				return farmLabourAbility
 		thisLocation.skillNeeded.millLabourSkill:
 			if millLabourAbility > 50:
 				return millLabourAbility
 			if farmLabourAbility > (millLabourAbility * 2):
-				return farmLabourAbility /2
+				return int(float(farmLabourAbility) /2)
 			else:
 				return millLabourAbility
 	return farmLabourAbility

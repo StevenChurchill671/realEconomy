@@ -9,15 +9,14 @@ var ownerOf : Person
 ##to work the node. Owner can be a faction representative
 ## to represent state control
 var ownerIsEmployer :bool
-var amountOfProducedItem : int= 0
 var slotsAvailable : int
 var maxSlotsAvailable : int
 var workersToiling : Array[Person] = []
-
-var itemProduced : String 
+@export
+var itemProduced : Item 
 var workNeeded : int 
 var maxWorkNeeded : int
-var typeOfWork : String
+
 
 enum skillNeeded {millLabourSkill,farmLabourSkill}
 func addWorkerToThis(thisWorker):
@@ -38,10 +37,11 @@ func _on_working_time_timeout(thisWorker : Person, thisTimer:Timer) :
 	else:
 		#workNeeded -= thisWorker.labourAblity
 		workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.skillBeingUsed ))
-		amountOfProducedItem += 1
+		itemProduced.amount += 1
 	print(str(workNeeded))
 	print(str(slotsAvailable))
 	thisTimer.queue_free()
+	thisWorker.currentTask = null
 
 
 func returnSkillType() -> skillNeeded:
