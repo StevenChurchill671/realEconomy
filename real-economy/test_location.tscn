@@ -48,8 +48,10 @@ employer = NodePath("../Employer")
 
 [node name="person" parent="." unique_id=1326876063 node_paths=PackedStringArray("employer") instance=ExtResource("3_0yauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6318502, 0.7845125, 3.554369)
+faction = ExtResource("4_21p7k")
 employer = NodePath("../Employer")
 
 [node name="person3" parent="." unique_id=196305057 node_paths=PackedStringArray("employer") instance=ExtResource("3_0yauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5787306, 1.2142849, -4.132284)
+faction = ExtResource("4_21p7k")
 employer = NodePath("../Employer")

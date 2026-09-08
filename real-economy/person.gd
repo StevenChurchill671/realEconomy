@@ -90,4 +90,21 @@ func assignEmployeesToWork():
 				localEmployee.currentTask = thisLocation
 		
 		
-		#slotsAvail
+##discovery function called on an employee employee.getskills to determine
+##which role they are suited to
+func getSkillNeeded(thisLocation :Location, thisEmployee : Person):
+	match thisLocation.returnSkillType():
+		thisLocation.skillNeeded.farmLabourSkill:
+			if farmLabourAbility > 50:
+				return farmLabourAbility
+			if millLabourAbility > (farmLabourAbility * 2):
+				return millLabourAbility 
+			else:
+				return farmLabourAbility
+		thisLocation.skillNeeded.millLabourSkill:
+			if millLabourAbility > 50:
+				return millLabourAbility
+			if farmLabourAbility > (millLabourAbility * 2):
+				return farmLabourAbility
+			else:
+				return millLabourAbility

@@ -36,23 +36,22 @@ func _on_working_time_timeout(thisWorker : Person, thisTimer:Timer) :
 	if returnSkillType() == skillNeeded.farmLabourSkill:
 		if workNeeded - thisWorker.farmLabourAbility > 0:
 			workNeeded -= thisWorker.farmLabourAbility
-	else:
-		#workNeeded -= thisWorker.labourAblity
-		workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.farmLabourAbility ))
-		amountOfProducedItem += 1
-	if returnSkillType() == skillNeeded.millLabourSkill:
+		else:
+			#workNeeded -= thisWorker.labourAblity
+			workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.farmLabourAbility ))
+			amountOfProducedItem += 1
+	elif returnSkillType() == skillNeeded.millLabourSkill:
 		if workNeeded - thisWorker.millLabourAbility > 0:
 			workNeeded -= thisWorker.millLabourAbility
-	else:
-		#workNeeded -= thisWorker.labourAblity
-		workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.millLabourAbility ))
-		amountOfProducedItem += 1
+		else:
+			#workNeeded -= thisWorker.labourAblity
+			workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.millLabourAbility ))
+			amountOfProducedItem += 1
 	print(str(workNeeded))
 	print(str(slotsAvailable))
 	thisTimer.queue_free()
 
-func findBestWorker():
-	pass
+
 func returnSkillType() -> skillNeeded:
 	return skillNeeded
 	

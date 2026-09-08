@@ -4,8 +4,8 @@ extends Location
 func _ready() -> void:
 	ownerIsEmployer = false
 	amountOfProducedItem = 0
-	slotsAvailable = 4
-	maxSlotsAvailable = 4
+	slotsAvailable = 3
+	maxSlotsAvailable = 3
 	#workersToiling  
 	
 	itemProduced  = "Wheat"
