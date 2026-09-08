@@ -33,20 +33,12 @@ func addWorkerToThis(thisWorker):
 func _on_working_time_timeout(thisWorker : Person, thisTimer:Timer) :
 	workersToiling.erase(thisWorker)
 	slotsAvailable +=1
-	if returnSkillType() == skillNeeded.farmLabourSkill:
-		if workNeeded - thisWorker.farmLabourAbility > 0:
-			workNeeded -= thisWorker.farmLabourAbility
-		else:
-			#workNeeded -= thisWorker.labourAblity
-			workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.farmLabourAbility ))
-			amountOfProducedItem += 1
-	elif returnSkillType() == skillNeeded.millLabourSkill:
-		if workNeeded - thisWorker.millLabourAbility > 0:
-			workNeeded -= thisWorker.millLabourAbility
-		else:
-			#workNeeded -= thisWorker.labourAblity
-			workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.millLabourAbility ))
-			amountOfProducedItem += 1
+	if workNeeded - thisWorker.skillBeingUsed > 0:
+			workNeeded -= thisWorker.skillBeingUsed
+	else:
+		#workNeeded -= thisWorker.labourAblity
+		workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.skillBeingUsed ))
+		amountOfProducedItem += 1
 	print(str(workNeeded))
 	print(str(slotsAvailable))
 	thisTimer.queue_free()

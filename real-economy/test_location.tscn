@@ -25,6 +25,10 @@ locationCitizens = [NodePath("Employer"), NodePath("person2"), NodePath("person"
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 18.405163, 0, 21.252956)
 ownerOf = NodePath("../Employer")
 
+[node name="farm2" parent="." unique_id=669356159 node_paths=PackedStringArray("ownerOf") instance=ExtResource("1_adare")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 18.405163, 0, -28.445717)
+ownerOf = NodePath("../Employer")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1587858785]
 mesh = SubResource("PlaneMesh_yf5fn")
 
@@ -35,7 +39,7 @@ shape = SubResource("ConvexPolygonShape3D_mrwl0")
 
 [node name="Employer" parent="." unique_id=570725723 node_paths=PackedStringArray("ownedLocations") instance=ExtResource("3_0yauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.345195, 1, -1.4805975)
-ownedLocations = [NodePath("../farm")]
+ownedLocations = [NodePath("../farm"), NodePath("../farm2")]
 purse = SubResource("Resource_21p7k")
 personName = "John"
 faction = ExtResource("4_21p7k")

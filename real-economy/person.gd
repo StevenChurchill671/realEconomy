@@ -33,9 +33,11 @@ var employees : Array[Person]= []
 @export
 var labourAblity : int = randi_range(30,65)
 @export
-var millLabourAbility : int = 50
+var millLabourAbility : int = 100
 @export 
-var farmLabourAbility : int = 100
+var farmLabourAbility : int = 25
+enum skills {millLabourSkill,farmLabourSkill}
+var skillBeingUsed : int
 ##Link to employer, if one exists. ([Person]) or later company.
 @export
 var employer : Person:
@@ -86,25 +88,27 @@ func assignEmployeesToWork():
 	for localEmployee : Person in employees:
 		for thisLocation : Location in ownedLocations:
 			if thisLocation.slotsAvailable > 0:
+				localEmployee.skillBeingUsed = getSkillNeeded(thisLocation) 
 				thisLocation.addWorkerToThis(localEmployee)
 				localEmployee.currentTask = thisLocation
 		
 		
 ##discovery function called on an employee employee.getskills to determine
 ##which role they are suited to
-func getSkillNeeded(thisLocation :Location, thisEmployee : Person):
+func getSkillNeeded(thisLocation :Location) -> int:
 	match thisLocation.returnSkillType():
 		thisLocation.skillNeeded.farmLabourSkill:
 			if farmLabourAbility > 50:
 				return farmLabourAbility
 			if millLabourAbility > (farmLabourAbility * 2):
-				return millLabourAbility 
+				return millLabourAbility/2
 			else:
 				return farmLabourAbility
 		thisLocation.skillNeeded.millLabourSkill:
 			if millLabourAbility > 50:
 				return millLabourAbility
 			if farmLabourAbility > (millLabourAbility * 2):
-				return farmLabourAbility
+				return farmLabourAbility /2
 			else:
 				return millLabourAbility
+	return farmLabourAbility
