@@ -5,6 +5,9 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bw225"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
 [node name="farm" type="Node3D" unique_id=838175959]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 script = ExtResource("1_ju177")
@@ -12,3 +15,12 @@ itemProduced = ExtResource("2_bw225")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1346943020]
 mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="workArea" type="Area3D" parent="MeshInstance3D" unique_id=1330949974]
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/workArea" unique_id=653649682]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_bw225")
+
+[connection signal="body_entered" from="MeshInstance3D/workArea" to="." method="_on_work_area_body_entered"]

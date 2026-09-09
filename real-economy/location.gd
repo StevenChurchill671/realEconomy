@@ -55,8 +55,8 @@ func _on_working_time_timeout(thisWorker : Person, thisTimer:Timer) :
 			itemProduced.amount += 1
 	workersToiling.erase(thisWorker)
 	slotsAvailable +=1
-	print(str(workNeeded))
-	print(str(slotsAvailable))
+	#print(str(workNeeded))
+	#print(str(slotsAvailable))
 	thisTimer.queue_free()
 	thisWorker.currentTask = null
 

@@ -14,3 +14,10 @@ func _ready() -> void:
 	
 func returnSkillType() -> skillNeeded:
 	return skillNeeded.farmLabourSkill
+
+
+func _on_work_area_body_entered(body: Node3D) -> void:
+	if body == Person:
+		
+		body.inWorkArea = true
+		print ("skring")

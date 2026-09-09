@@ -51,7 +51,7 @@ var target : Vector3
 ##link to employmentType
 @export
 var employment : employmentType = employmentType.new()
-
+var inWorkArea : bool =false
 
 func addOwnedLocation(thisLocation):
 	ownedLocations.append(thisLocation)
