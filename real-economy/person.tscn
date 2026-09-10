@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cvixnbe4onlyy"]
 
 [ext_resource type="Script" uid="uid://bnfie5hhwescn" path="res://person.gd" id="1_0pife"]
+[ext_resource type="PackedScene" uid="uid://cp1t5c27ddmn8" path="res://polyPizza/Man by Quaternius - HMnuH5geEG.glb" id="2_hncb1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
 
@@ -10,10 +11,12 @@ points = PackedVector3Array(-0.5, -0.5, 0, -0.49765074, -0.5, -0.049040705, -0.4
 [node name="person" type="CharacterBody3D" unique_id=1326876063]
 script = ExtResource("1_0pife")
 
+[node name="Root Scene" parent="." unique_id=1927465953 instance=ExtResource("2_hncb1")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.94038564, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1216041260]
+visible = false
 mesh = SubResource("CapsuleMesh_g4v7s")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1738184270]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=568822057]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=568822057]
 shape = SubResource("ConvexPolygonShape3D_0pife")

@@ -21,16 +21,17 @@ var itemConsumed : Item
 var runner : Person
 var enoughItemsToConsume : bool = false
 enum skillNeeded {millLabourSkill,farmLabourSkill}
-func addWorkerToThis(thisWorker):
+func addWorkerToThis(thisWorker : Person):
+	slotsAvailable -=1
+	thisWorker.currentTask = self
+func setWorkerWorking(thisWorker:Person):
 	if! workersToiling.has(thisWorker):
 		workersToiling.append(thisWorker)
-		slotsAvailable -= 1
 		var thisTimer = Timer.new()
 		self.add_child(thisTimer)
 		thisTimer.timeout.connect(_on_working_time_timeout.bind(thisWorker, thisTimer))
 		thisTimer.one_shot = true
 		thisTimer.start(1)
-
 func _on_working_time_timeout(thisWorker : Person, thisTimer:Timer) :
 	if itemConsumed != null:
 		if itemConsumed.amount>0:
@@ -53,6 +54,9 @@ func _on_working_time_timeout(thisWorker : Person, thisTimer:Timer) :
 			
 			workNeeded = (maxWorkNeeded + (workNeeded - thisWorker.skillBeingUsed ))
 			itemProduced.amount += 1
+			if itemProduced.amount > 5:
+				
+				getRunner(itemProduced, thisWorker, getLocationThatConsumes(itemProduced))
 	workersToiling.erase(thisWorker)
 	slotsAvailable +=1
 	#print(str(workNeeded))
@@ -64,6 +68,13 @@ func _on_working_time_timeout(thisWorker : Person, thisTimer:Timer) :
 func returnSkillType() -> skillNeeded:
 	return skillNeeded
 	
-func getRunner(thisItem : Item, thisRunner : Person,runnerTarget):
+func getRunner(thisItem : Item, thisRunner : Person, runnerTarget : Location):
 	
 	thisRunner.currentTask = runnerTarget
+func getLocationThatConsumes(thisItem : Item):
+	var currentLocation : Location =  null
+	var bestLocation : Location  = null
+	for theLocation in ownerOf.ownedLocations:
+		currentLocation = theLocation
+		if theLocation.itemConsumed == thisItem:
+			self.global_transform.origin.distance_to(theLocation.origin)

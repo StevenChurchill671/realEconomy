@@ -4,8 +4,8 @@ extends Location
 func _ready() -> void:
 	
 	ownerIsEmployer = false
-	slotsAvailable = 3
-	maxSlotsAvailable = 3
+	slotsAvailable = 2
+	maxSlotsAvailable = 2
 	#workersToiling  
 	
 	
@@ -17,7 +17,7 @@ func returnSkillType() -> skillNeeded:
 
 
 func _on_work_area_body_entered(body: Node3D) -> void:
-	if body == Person:
+	if body is Person:
 		
 		body.inWorkArea = true
-		print ("skring")
+		#print ("skring")

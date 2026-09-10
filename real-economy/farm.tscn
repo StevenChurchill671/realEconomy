@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkom8edl872uh" path="res://farm.gd" id="1_ju177"]
 [ext_resource type="Resource" uid="uid://d0rdctomaciu0" path="res://resources/wheat.tres" id="2_bw225"]
+[ext_resource type="PackedScene" uid="uid://cyv7gdh1ss0qf" path="res://polyPizza/Field of wheat by Poly by Google - cNX9BRNG6ep.glb" id="3_vkr66"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 
@@ -13,7 +14,11 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 script = ExtResource("1_ju177")
 itemProduced = ExtResource("2_bw225")
 
+[node name="Field of wheat by Poly by Google - cNX9BRNG6ep" parent="." unique_id=1701591351 instance=ExtResource("3_vkr66")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1346943020]
+visible = false
 mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="workArea" type="Area3D" parent="MeshInstance3D" unique_id=1330949974]

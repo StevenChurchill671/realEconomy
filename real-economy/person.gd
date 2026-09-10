@@ -14,6 +14,9 @@ var purse : Purse = Purse.new()
 ##The name of the person.
 @export
 var personName : String
+@export
+##The ability to run fast
+var agility : int = 0
 ##The current object the person is assigned to or null
 @export
 var currentTask : Location 
@@ -51,8 +54,11 @@ var target : Vector3
 ##link to employmentType
 @export
 var employment : employmentType = employmentType.new()
-var inWorkArea : bool =false
-
+var inWorkArea : bool =false:
+	set(it):
+		inWorkArea = it
+		if it == true && currentTask!=null:
+			currentTask.setWorkerWorking(self)
 func addOwnedLocation(thisLocation):
 	ownedLocations.append(thisLocation)
 func addEmployee(localEmployee : Person):
@@ -84,9 +90,12 @@ func _process(delta: float) -> void:
 		return
 	velocity = global_position.direction_to(target) * speed
 	move_and_slide()
+	
 
 func assignEmployeesToWork():
 	for localEmployee : Person in employees:
+		
+			
 		var bestLocation : Location = null
 		var bestScore : int = -1
 		for thisLocation : Location in ownedLocations:
@@ -95,10 +104,10 @@ func assignEmployeesToWork():
 				if score > bestScore:
 					bestScore = score
 					bestLocation = thisLocation
-				if bestLocation != null:
-					localEmployee.skillBeingUsed = getSkillNeeded(bestLocation) 
-					bestLocation.addWorkerToThis(localEmployee)
-					localEmployee.currentTask = bestLocation
+		if bestLocation != null:
+			localEmployee.skillBeingUsed = localEmployee.getSkillNeeded(bestLocation) 
+			bestLocation.addWorkerToThis(localEmployee)
+			localEmployee.currentTask = bestLocation
 		
 		
 ##discovery function called on an employee employee.getskills to determine

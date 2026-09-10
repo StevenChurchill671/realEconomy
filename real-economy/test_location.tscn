@@ -6,8 +6,14 @@
 [ext_resource type="Resource" uid="uid://u4v4p5v1u23y" path="res://Faction List/exampleFactionOne.tres" id="4_21p7k"]
 [ext_resource type="Script" uid="uid://cfdmutpvug8wa" path="res://resources/purse.gd" id="4_b51pg"]
 [ext_resource type="PackedScene" uid="uid://diphyf7ig1jv8" path="res://mill.tscn" id="6_sk2n7"]
+[ext_resource type="PackedScene" uid="uid://8y5wqr31j3tc" path="res://world_environment.tscn" id="7_uprbi"]
+[ext_resource type="PackedScene" uid="uid://bghmq1a0x4g8c" path="res://player.tscn" id="8_thsex"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uprbi"]
+albedo_color = Color(0.37254903, 0.8156863, 0.39215687, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
+material = SubResource("StandardMaterial3D_uprbi")
 size = Vector2(100, 100)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mrwl0"]
@@ -70,7 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8.480664)
 employer = NodePath("../Employer")
 
 [node name="mill" parent="." unique_id=842592306 instance=ExtResource("6_sk2n7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1177063, 0.7730627, -12.889114)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.1177063, 3.7730627, -12.889114)
 
 [node name="farm3" parent="." unique_id=779644431 node_paths=PackedStringArray("ownerOf") instance=ExtResource("1_adare")]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 34.895885, 0, -7.275895)
@@ -79,3 +85,7 @@ ownerOf = NodePath("../Employer")
 [node name="farm4" parent="." unique_id=482114024 node_paths=PackedStringArray("ownerOf") instance=ExtResource("1_adare")]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 30.831964, 0, 13.037754)
 ownerOf = NodePath("../Employer")
+
+[node name="WorldEnvironment" parent="." unique_id=1392957840 instance=ExtResource("7_uprbi")]
+
+[node name="Player" parent="." unique_id=1116856109 instance=ExtResource("8_thsex")]

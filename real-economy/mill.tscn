@@ -3,13 +3,29 @@
 [ext_resource type="Script" uid="uid://jqhp3vomxbrw" path="res://mill.gd" id="1_4f2v4"]
 [ext_resource type="Resource" uid="uid://dnuoj028g8faw" path="res://resources/flour.tres" id="2_6f5ni"]
 [ext_resource type="Resource" uid="uid://d0rdctomaciu0" path="res://resources/wheat.tres" id="3_pl00u"]
+[ext_resource type="PackedScene" uid="uid://ddll07jdoef" path="res://polyPizza/Windmill by Poly by Google - ctIRaIM3zXu.glb" id="4_x5qa7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x5qa7"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
 [node name="mill" type="Node3D" unique_id=842592306]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 5, 0)
 script = ExtResource("1_4f2v4")
 itemProduced = ExtResource("2_6f5ni")
 itemConsumed = ExtResource("3_pl00u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1803534853]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.50775695, 0)
+visible = false
 mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" unique_id=1006237719]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D" unique_id=19632668]
+shape = SubResource("ConvexPolygonShape3D_x5qa7")
+
+[node name="Windmill by Poly by Google - ctIRaIM3zXu" parent="." unique_id=2087715580 instance=ExtResource("4_x5qa7")]
+
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_work_area_body_entered"]
