@@ -23,6 +23,8 @@ var runner : Person
 var enoughItemsToConsume : bool = false
 enum skillNeeded {millLabourSkill,farmLabourSkill}
 func addWorkerToThis(thisWorker : Person):
+	if thisWorker.isRunner:
+		getRunner(itemProduced,thisWorker,getLocationThatConsumes(itemProduced))
 	slotsAvailable -=1
 	thisWorker.currentTask = self
 func setWorkerWorking(thisWorker:Person):
