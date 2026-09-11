@@ -51,6 +51,9 @@ var employer : Person:
 			localEmployer.addEmployee(self)
 var speed = 2
 var target : Vector3 
+
+@export
+var isRunner : bool = false
 ##link to employmentType
 @export
 var employment : employmentType = employmentType.new()
@@ -82,19 +85,20 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !is_inside_tree():
 		return
-	assignEmployeesToWork()
+	
 	if currentTask != null:
 		target = currentTask.global_position
 		velocity = global_position.direction_to(target) * speed
 		move_and_slide()
 		return
+	else:
+		assignEmployeesToWork()
 	velocity = global_position.direction_to(target) * speed
 	move_and_slide()
 	
 
 func assignEmployeesToWork():
 	for localEmployee : Person in employees:
-		
 			
 		var bestLocation : Location = null
 		var bestScore : int = -1
@@ -108,7 +112,8 @@ func assignEmployeesToWork():
 			localEmployee.skillBeingUsed = localEmployee.getSkillNeeded(bestLocation) 
 			bestLocation.addWorkerToThis(localEmployee)
 			localEmployee.currentTask = bestLocation
-		
+			if localEmployee.inWorkArea:
+				bestLocation.setWorkerWorking(localEmployee)
 		
 ##discovery function called on an employee employee.getskills to determine
 ##which role they are suited to

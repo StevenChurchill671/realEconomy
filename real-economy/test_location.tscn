@@ -37,6 +37,7 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 18.405163, 1, 21.252956)
 ownerOf = NodePath("../Employer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1587858785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08258629, -3.8146973e-06, -0.22210503)
 mesh = SubResource("PlaneMesh_yf5fn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1380282635]
@@ -89,3 +90,8 @@ ownerOf = NodePath("../Employer")
 [node name="WorldEnvironment" parent="." unique_id=1392957840 instance=ExtResource("7_uprbi")]
 
 [node name="Player" parent="." unique_id=1116856109 instance=ExtResource("8_thsex")]
+
+[node name="runner" parent="." unique_id=1281545722 node_paths=PackedStringArray("employer") instance=ExtResource("3_0yauj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5694008, -1.9073486e-06, 12.109846)
+employer = NodePath("../Employer")
+isRunner = true

@@ -9,8 +9,8 @@ func _ready() -> void:
 	#workersToiling  
 	
 	
-	workNeeded  = 2000
-	maxWorkNeeded = 2000
+	workNeeded  = 200
+	maxWorkNeeded = 200
 	
 func returnSkillType() -> skillNeeded:
 	return skillNeeded.farmLabourSkill
